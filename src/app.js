@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const Transaction =require("./models/paymentModel");
 const stripe = require("stripe")(
-  "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"
+  "sk_test_51PJriQSGOoSqXGaxtPkKRDSPPap69Ig03QETGgjmeCrpY7MwKwqKxYTXCD79lh7r4meaJQdYltUQXSphCWDnJOte00dbguOXr8"
 );
 
 require('./db/conn')
@@ -26,7 +26,7 @@ app.post("/api/payment", async (req, res) => {
     line_items: [
       {
         price_data: {
-          currency: "INR",
+          currency: "usd",
           product_data: {
             name: "Payment",
           },
