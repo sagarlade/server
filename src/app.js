@@ -9,10 +9,7 @@ const stripe = require("stripe")(
 
 require('./db/conn')
 const app = express();
-// app.use(cors({
-//   origin:[process.env.FRONTEND_URL],
-//   credentials:true
-// }));
+
 app.use(cors());
 app.use(express.json());
 
@@ -20,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/api/payment", async (req, res) => {
   const { fullname, amount } = req.body;
+
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -52,7 +50,7 @@ app.post("/api/payment", async (req, res) => {
 
 app.get("/api/transactions", async (req, res) => {
   const transactions = await Transaction.find({});
-
+  res.set('Access-Control-Allow-Origin', '*');
   res.json(transactions);
 });
 
