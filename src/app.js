@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const Transaction =require("./models/paymentModel");
 const stripe = require("stripe")(
-  "sk_test_51PJriQSGOoSqXGaxtPkKRDSPPap69Ig03QETGgjmeCrpY7MwKwqKxYTXCD79lh7r4meaJQdYltUQXSphCWDnJOte00dbguOXr8"
+  ""
 );
 
 require('./db/conn')
